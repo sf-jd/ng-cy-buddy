@@ -2,13 +2,7 @@
   todo-list works!
 </p>
 
-<input
-  type="text"
-  class="todo-input"
-  placeholder="Add a to-do"
-  [(ngModel)]="todoTitle"
-  (keyup.enter)="addTodo()"
-/>
+<input type="text" class="todo-input" placeholder="Add a to-do" [(ngModel)]="todoTitle" (keyup.enter)="addTodo()" />
 
 <div class="todo-item" *ngFor="let todo of todos">
   <div class="todo-item-left">
@@ -16,6 +10,7 @@
     <div
       *ngIf="!todo.editing; else editingTodo"
       class="todo-item-label"
+      [ngClass]="{ completed: todo.completed }"
       (dblclick)="editTodo(todo)"
     >
       {{ todo.title }}
