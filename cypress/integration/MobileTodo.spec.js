@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-context('ng Todo App', () => {
+context('ng Todo App Mobile resolution', () => {
   beforeEach(() => {
     cy.viewport('iphone-6');
     cy.visit('http://localhost:4200');
