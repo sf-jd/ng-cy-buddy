@@ -2,6 +2,7 @@
 
 context('ng Todo App', () => {
   beforeEach(() => {
+    cy.viewport('iphone-6');
     cy.visit('http://localhost:4200');
   });
 
@@ -10,8 +11,9 @@ context('ng Todo App', () => {
       cy.get('.app-title').should('be', 'visible');
       cy.get('.app-title').should('contain', 'Todo App');
     });
-    it('Should not see the subtitle', () => {
-      cy.get('.mobile-subheader').should('not.be.visible');
+    it('Should see the subtitle', () => {
+      cy.get('.mobile-subheader').should('be.visible');
+      cy.get('.mobile-subheader').should('contain', 'Now on mobile!');
     });
     it('Should see the Add to-do input', () => {
       cy.get('.todo-input').should('be', 'visible');

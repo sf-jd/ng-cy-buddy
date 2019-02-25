@@ -14,7 +14,13 @@
   text-align: center;
   margin: 25px auto 50px auto;
 }
-
+.mobile-subheader {
+  display: none;
+  @media (max-width: 420px) {
+    display: block;
+    text-align: center;
+  }
+}
 .todo-input {
   @include input-style;
 }
