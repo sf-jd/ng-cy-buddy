@@ -75,4 +75,8 @@ export class TodoListComponent implements OnInit {
     }
     todo.editing = false;
   }
+
+  remainingTodos(): number {
+    return this.todos.filter(todo => !todo.completed).length;
+  }
 }

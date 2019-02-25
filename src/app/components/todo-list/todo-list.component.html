@@ -1,11 +1,11 @@
-<p>
-  todo-list works!
-</p>
-
 <input type="text" class="todo-input" placeholder="Add a to-do" [(ngModel)]="todoTitle" (keyup.enter)="addTodo()" />
 
+<div class="no-todos" *ngIf="todos.length === 0">
+  <p class="no-todos-message">Start adding some ToDos!</p>
+</div>
+
 <div class="todo-item" *ngFor="let todo of todos">
-  <div class="todo-item-left">
+  <div class="todo-item-left" [attr.data-id]="todo.id">
     <input type="checkbox" [(ngModel)]="todo.completed" />
     <div
       *ngIf="!todo.editing; else editingTodo"
@@ -30,4 +30,8 @@
   <div class="remove-item" (click)="deleteTodo(todo.id)">
     &times;
   </div>
+</div>
+
+<div class="todo-footer">
+  <p class="remaining-todos">{{ remainingTodos() }} incomplete items on your list</p>
 </div>
