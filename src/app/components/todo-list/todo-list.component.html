@@ -1,3 +1,5 @@
+<h1 class="app-title">Todo App</h1>
+
 <input type="text" class="todo-input" placeholder="Add a to-do" [(ngModel)]="todoTitle" (keyup.enter)="addTodo()" />
 
 <div class="no-todos" *ngIf="todos.length === 0">
@@ -6,7 +8,7 @@
 
 <div class="todo-item" *ngFor="let todo of todos">
   <div class="todo-item-left" [attr.data-id]="todo.id">
-    <input type="checkbox" [(ngModel)]="todo.completed" />
+    <input class="todo-checkbox" type="checkbox" [(ngModel)]="todo.completed" />
     <div
       *ngIf="!todo.editing; else editingTodo"
       class="todo-item-label"
@@ -33,5 +35,7 @@
 </div>
 
 <div class="todo-footer">
-  <p class="remaining-todos">{{ remainingTodos() }} incomplete items on your list</p>
+  <p class="remaining-todos">
+    <span class="remaining-count">{{ remainingTodos() }}</span> incomplete items on your list
+  </p>
 </div>
