@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "e2e": "concurrently \"npm run start\" \"wait-on http-get://localhost:4200 && npm run cy:run\" --kill-others",
+    "e2e": "concurrently \"npm run start\" \"wait-on http-get://localhost:4200 && npm run cy:run\"",
     "e2e-gui": "concurrently \"npm run start\" \"wait-on http-get://localhost:4200 && npm run cy:open\" --kill-others"
   },
   "private": true,
